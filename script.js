@@ -3,4 +3,6 @@ gsap.to("#box",{
     duration:2,
     delay:1,
     backgroundColor:"pink",
+    repeat:-1,
+    yoyo:true
 })
