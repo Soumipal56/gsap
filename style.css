@@ -54,3 +54,24 @@ html , body {
     width: 200px;
     height: 200px;
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttons div, button {
+    font-size: 2rem;
+    color: white;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
