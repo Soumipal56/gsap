@@ -1,10 +1,23 @@
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".box", {
+  x: 1200,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: '.box',
+    start: 'top 30%',
+    end: "top 10%",
+    scrub: true,
+  }
+})
+
 // Animate each letter span inside .letter-container
 // gsap.from('.letter-container span', {
 //   x: 1000,
 //   duration: 2,
 //   delay: 1,
 //   ease: 'bounce.out',
-//   stagger: {
+//   stagger: 
 //     each: 0.3,
 //     from: 'center'
 //   }
@@ -58,15 +71,15 @@
 // })
 
 // Loading Timeline
-const loadingTimeline = () => {
-  return gsap.timeline().to(Element,{}).from
-}
+// const loadingTimeline = () => {
+//   return gsap.timeline().to(Element,{}).from
+// }
 
 // Navbar Timeline
-const navbarTimeline = () => {
-  return gsap.timeline()
-}
+// const navbarTimeline = () => {
+//   return gsap.timeline()
+// }
 
-const master = gsap.timeline();
+// const master = gsap.timeline();
 
-master.add(loadingTimeline).add(navbarTimeline);
+// master.add(loadingTimeline).add(navbarTimeline);
