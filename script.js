@@ -10,50 +10,63 @@
 //   }
 // });
 
-const play = document.querySelector('.play')
-const pause = document.querySelector('.pause')
-const restart = document.querySelector('.restart')
-const reverse = document.querySelector('.reverse')
-const seek = document.querySelector('.seek')
+// const play = document.querySelector('.play')
+// const pause = document.querySelector('.pause')
+// const restart = document.querySelector('.restart')
+// const reverse = document.querySelector('.reverse')
+// const seek = document.querySelector('.seek')
 
-const tl = gsap.timeline({
-  paused: true
-})
+// const tl = gsap.timeline({
+//   paused: true
+// })
 
-tl.to("#box1",{
-  x: () => window.innerWidth - 250,
-  rotate:360,
-  duration:1.5,
-  delay:1
-})
+// tl.to("#box1",{
+//   x: () => window.innerWidth - 250,
+//   rotate:360,
+//   duration:1.5,
+//   delay:1
+// }).addLabel("soumi")
 
-tl.to("#box2",{
-  x: () => window.innerWidth - 250,
-  duration:1.5
-}).addLabel("soumi")
+// tl.to("#box2",{
+//   x: () => window.innerWidth - 250,
+//   duration:1.5
+// })
 
-tl.to("#box3",{
-  x: () => window.innerWidth - 250,
-  duration:1.5
-})
+// tl.to("#box3",{
+//   x: () => window.innerWidth - 250,
+//   duration:1.5
+// })
 
-play.addEventListener("click", () => {
-  tl.play();
-})
+// play.addEventListener("click", () => {
+//   tl.play();
+// })
 
-pause.addEventListener("click", () => {
-  tl.pause();
-})
+// pause.addEventListener("click", () => {
+//   tl.pause();
+// })
 
-restart.addEventListener("click", () => {
-  tl.restart();
-})
+// restart.addEventListener("click", () => {
+//   tl.restart();
+// })
 
-reverse.addEventListener("click", () => {
-  tl.reverse();
-})
+// reverse.addEventListener("click", () => {
+//   tl.reverse();
+// })
 
-seek.addEventListener("click", () => {
-  tl.seek("soumi")
-})
+// seek.addEventListener("click", () => {
+//   tl.seek("soumi")
+// })
 
+// Loading Timeline
+const loadingTimeline = () => {
+  return gsap.timeline().to(Element,{}).from
+}
+
+// Navbar Timeline
+const navbarTimeline = () => {
+  return gsap.timeline()
+}
+
+const master = gsap.timeline();
+
+master.add(loadingTimeline).add(navbarTimeline);
