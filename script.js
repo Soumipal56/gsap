@@ -1,16 +1,29 @@
-gsap.registerPlugin(ScrollTrigger);
+// Register plugins (assuming global usage from CDNs, but will also work if imported)
+if (typeof Draggable !== "undefined") gsap.registerPlugin(Draggable);
+if (typeof InertiaPlugin !== "undefined") gsap.registerPlugin(InertiaPlugin);
 
-gsap.to(".box", {
-  x: 1200,
-  ease: "power4.out",
-  scrollTrigger: {
-    trigger: '.page2',
-    start: 'top top',
-    end: "top -100%",
-    scrub: true,
-    pin: true,
+Draggable.create(".lamp-head", {
+  type: "y",
+  bounds: { minY: 0, maxY: 60 }, // allow dragging down up to 60px
+  inertia: true,
+  snap: {
+    y: [0] // snap back to original position (y: 0) when released
+  },
+  onDrag: function() {
+    // stretch the wire as we drag the lamp head down
+    gsap.set(".lamp-wire", { height: 60 + this.y });
+  },
+  onThrowUpdate: function() {
+    // continue stretching the wire as inertia snaps it back
+    gsap.set(".lamp-wire", { height: 60 + this.y });
+  },
+  onRelease: function() {
+    // when released, if pulled down more than 30px, toggle the light
+    if (this.y > 30) {
+      document.getElementById("lampContainer").classList.toggle("on");
+    }
   }
-})
+});
 
 // Animate each letter span inside .letter-container
 // gsap.from('.letter-container span', {
