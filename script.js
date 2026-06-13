@@ -14,6 +14,7 @@ const play = document.querySelector('.play')
 const pause = document.querySelector('.pause')
 const restart = document.querySelector('.restart')
 const reverse = document.querySelector('.reverse')
+const seek = document.querySelector('.seek')
 
 const tl = gsap.timeline({
   paused: true
@@ -50,5 +51,9 @@ restart.addEventListener("click", () => {
 
 reverse.addEventListener("click", () => {
   tl.reverse();
+})
+
+seek.addEventListener("click", () => {
+  tl.seek("2")
 })
 
