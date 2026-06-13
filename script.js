@@ -30,7 +30,7 @@ tl.to("#box1",{
 tl.to("#box2",{
   x: () => window.innerWidth - 250,
   duration:1.5
-})
+}).addLabel("soumi")
 
 tl.to("#box3",{
   x: () => window.innerWidth - 250,
@@ -54,6 +54,6 @@ reverse.addEventListener("click", () => {
 })
 
 seek.addEventListener("click", () => {
-  tl.seek("2")
+  tl.seek("soumi")
 })
 
