@@ -4,10 +4,11 @@ gsap.to(".box", {
   x: 1200,
   ease: "power4.out",
   scrollTrigger: {
-    trigger: '.box',
-    start: 'top 30%',
-    end: "top 10%",
+    trigger: '.page2',
+    start: 'top top',
+    end: "top -100%",
     scrub: true,
+    pin: true,
   }
 })
 
