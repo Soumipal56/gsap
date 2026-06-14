@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Chai Tapri</title>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <h2>0%</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
     <!-- <div class="letter-container">
         <span>C</span>
         <span>R</span>
@@ -41,21 +51,65 @@
         <div class="reverse">Reverse</div>
         <div class="seek">Seek</div>
     </div> -->
-    <div class="circle-container" id="lampContainer">
+    <!-- <div class="circle-container" id="lampContainer">
         <div class="lamp-wire"></div>
         <div class="lamp-head">
             <div class="lamp-shade"></div>
             <div class="lamp-bulb"></div>
             <div class="lamp-light-beam"></div>
         </div>
-    </div>
+    </div> -->
+    <!-- Chai Tapri App UI Wrapper -->
+    <div class="app-container">
+        
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="chai-title">
+                    <span class="char">C</span><span class="char">h</span><span class="char">a</span><span class="char">i</span><span class="char">&nbsp;</span><span class="char">T</span><span class="char">a</span><span class="char">p</span><span class="char">r</span><span class="char">i</span>
+                </h1>
+            </div>
+        </header>
+
+        <!-- Hero Section (Contains existing GSAP Animation) -->
+        <section class="hero-section">
+            <div class="hero-title">
+                <h2>The Perfect Pour</h2>
+                <p>Authentic street-style chai delivered to your doorstep.</p>
+            </div>
+
+            <!-- Tea Stall Scene -->
+            <div class="tea-stall-container">
+                <div class="stall-wall-light"></div>
+                <div class="kettle">
+                    <div class="kettle-handle"></div>
+                    <div class="kettle-lid"></div>
+                    <div class="kettle-body">
+                        <div class="kettle-soot"></div>
+                    </div>
+                    <div class="kettle-spout">
+                        <div class="spout-steam"></div>
+                    </div>
+                    <!-- The stream of tea that pours out -->
+                    <div class="tea-pour-stream"></div>
+                </div>
+                <div class="tea-glass-wrapper">
+                    <div class="tea-glass">
+                        <div class="tea-steam"></div>
+                        <div class="tea-liquid"></div>
+                    </div>
+                    <div class="tea-spill"></div>
+                </div>
+            </div>
+        </section>
 
 
-    
+    </div> <!-- End App Container -->    
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
     <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+    <script src="https://assets.codepen.io/16327/DrawSVGPlugin.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
