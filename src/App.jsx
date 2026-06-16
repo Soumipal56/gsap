@@ -7,7 +7,7 @@ const App = () => {
  
   return (
     <div>
-      <motion.div initial={{ opacity: 0}} transition={{ duration: 0.5, ease: 'easeInOut' }} animate={{ x: 500, opacity: 1 }} whileHover={{scale: 1.5}} whileTap={{scale: 0.8}} className="box"></motion.div>
+      <motion.div initial={{ opacity: 0}} transition={{ duration: 0.5, ease: 'easeInOut' }} animate={{ x: 500, opacity: 1 }} whileInView={{opacity: 1, scale: 1}} className="box"></motion.div>
     </div>
   )
 }
