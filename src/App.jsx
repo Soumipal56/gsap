@@ -4,6 +4,7 @@ import gsap from 'gsap'
 
 const App = () => {
   const boxRef = useRef(null)
+  const containerRef = useRef(null)
 
   useGSAP(()=>{
     gsap.to(boxRef.current,{
@@ -11,10 +12,10 @@ const App = () => {
       duration: 1,
       delay: 0.5,
     })
-  })
+  },{ scope: containerRef.current, dependencies: [], revertOnUpdate: true })
   
   return (
-    <div>
+    <div ref={containerRef}>
       <div ref={boxRef} className='box'>
 
       </div>
