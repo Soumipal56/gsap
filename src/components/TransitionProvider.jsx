@@ -44,7 +44,7 @@ export const TransitionProvider = ({ children }) => {
       navigate(to);
     })
     // Brief pause
-    .to({}, { duration: 0.2 })
+    .to({}, { duration: 0.3 })
     // Step 3: Blocks scale down to reveal the new page (open shutter)
     .to(blockElements, { 
         scaleY: 0, 
