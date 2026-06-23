@@ -11,14 +11,21 @@ export const TransitionProvider = ({ children }) => {
   const shutterRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // We'll use 5 black blocks for the shutter effect.
+  // We'll use 5 blocks for the shutter effect.
   const blocks = [0, 1, 2, 3, 4];
 
-  const navigateWithTransition = (to) => {
+  const navigateWithTransition = (to, imgUrl) => {
     if (isAnimating) return;
     setIsAnimating(true);
 
     const blockElements = shutterRef.current.children;
+
+    // Apply the image to the blocks
+    if (imgUrl) {
+      gsap.set(blockElements, { backgroundImage: `url(${imgUrl})` });
+    } else {
+      gsap.set(blockElements, { backgroundImage: 'none', backgroundColor: '#000000' });
+    }
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -39,7 +46,7 @@ export const TransitionProvider = ({ children }) => {
         ease: 'power3.inOut' 
       }
     )
-    // Step 2: Actually change the route while screen is entirely black
+    // Step 2: Actually change the route while screen is covered by shutter
     .call(() => {
       navigate(to);
     })
@@ -70,7 +77,7 @@ export const TransitionProvider = ({ children }) => {
           display: 'none', // Hidden initially
           flexDirection: 'row',
           pointerEvents: 'none', // Don't block clicks
-          gap: '2px', // tiny gap adds a cool effect, optional
+          gap: '0px', // Removing gap to make the image seamless
           backgroundColor: 'transparent'
         }}
       >
@@ -82,6 +89,10 @@ export const TransitionProvider = ({ children }) => {
               flex: 1,
               height: '100%',
               backgroundColor: '#000000',
+              backgroundImage: 'none',
+              backgroundSize: '500% 100%',
+              backgroundPosition: `${i * 25}% center`,
+              backgroundRepeat: 'no-repeat',
               transformOrigin: 'center center', // Shrink/grow from center
               willChange: 'transform'
             }}
